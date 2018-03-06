@@ -5,9 +5,6 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-/**
- * Created by 53254 on 2018/3/5 9:16 /mmal
- */
 public class RedisPool {
     private static JedisPool pool;//连接池
     private static String redisIp = PropertiesUtil.getProperty("redis.ip");
@@ -45,11 +42,4 @@ public class RedisPool {
         pool.returnBrokenResource(jedis);
     }
 
-    public static void main(String[] args) {
-        Jedis jedis = pool.getResource();
-        jedis.set("key", "value");
-        returnResource(jedis);
-        pool.destroy();//临时调用，销毁所有连接
-        System.out.println("program is end");
-    }
 }

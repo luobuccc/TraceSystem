@@ -1,26 +1,764 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.traceback.dao.AnimalProductMapper">
+  <resultMap id="BaseResultMap" type="com.traceback.pojo.AnimalProduct">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="slaughter_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="approval_standards" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="package_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="shelf_life" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="expire_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="traceability_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="product_type" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, slaughter_batch_id, slaughter_id, quarantine_id, name, category, approval_standards, 
+    weight, price, package_time, shelf_life, expire_time, traceability_code, remark, 
+    gmt_create, gmt_modified, modified_id, product_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stm_animal_product_inf
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stm_animal_product_inf
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.traceback.pojo.AnimalProduct">
+    insert into stm_animal_product_inf (id, slaughter_batch_id, slaughter_id, 
+      quarantine_id, name, category, 
+      approval_standards, weight, price, 
+      package_time, shelf_life, expire_time, 
+      traceability_code, remark, gmt_create, 
+      gmt_modified, modified_id, product_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{slaughterId,jdbcType=INTEGER}, 
+      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{approvalStandards,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
+      #{packageTime,jdbcType=TIMESTAMP}, #{shelfLife,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP}, 
+      #{traceabilityCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.traceback.pojo.AnimalProduct">
+    insert into stm_animal_product_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="slaughterBatchId != null">
+        slaughter_batch_id,
+      </if>
+      <if test="slaughterId != null">
+        slaughter_id,
+      </if>
+      <if test="quarantineId != null">
+        quarantine_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="approvalStandards != null">
+        approval_standards,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="packageTime != null">
+        package_time,
+      </if>
+      <if test="shelfLife != null">
+        shelf_life,
+      </if>
+      <if test="expireTime != null">
+        expire_time,
+      </if>
+      <if test="traceabilityCode != null">
+        traceability_code,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="modifiedId != null">
+        modified_id,
+      </if>
+      <if test="productType != null">
+        product_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterBatchId != null">
+        #{slaughterBatchId,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterId != null">
+        #{slaughterId,jdbcType=INTEGER},
+      </if>
+      <if test="quarantineId != null">
+        #{quarantineId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalStandards != null">
+        #{approvalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="packageTime != null">
+        #{packageTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfLife != null">
+        #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="traceabilityCode != null">
+        #{traceabilityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null">
+        #{modifiedId,jdbcType=INTEGER},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.AnimalProduct">
+    update stm_animal_product_inf
+    <set>
+      <if test="slaughterBatchId != null">
+        slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterId != null">
+        slaughter_id = #{slaughterId,jdbcType=INTEGER},
+      </if>
+      <if test="quarantineId != null">
+        quarantine_id = #{quarantineId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalStandards != null">
+        approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="packageTime != null">
+        package_time = #{packageTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfLife != null">
+        shelf_life = #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="traceabilityCode != null">
+        traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null">
+        modified_id = #{modifiedId,jdbcType=INTEGER},
+      </if>
+      <if test="productType != null">
+        product_type = #{productType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.AnimalProduct">
+    update stm_animal_product_inf
+    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+      slaughter_id = #{slaughterId,jdbcType=INTEGER},
+      quarantine_id = #{quarantineId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      package_time = #{packageTime,jdbcType=TIMESTAMP},
+      shelf_life = #{shelfLife,jdbcType=INTEGER},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_id = #{modifiedId,jdbcType=INTEGER},
+      product_type = #{productType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.traceback.pojo.AnimalProduct">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="slaughter_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="approval_standards" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="package_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="shelf_life" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="expire_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="traceability_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="product_type" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, slaughter_batch_id, slaughter_id, quarantine_id, name, category, approval_standards, 
+    weight, price, package_time, shelf_life, expire_time, traceability_code, remark, 
+    gmt_create, gmt_modified, modified_id, product_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stm_animal_product_inf
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stm_animal_product_inf
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.traceback.pojo.AnimalProduct">
+    insert into stm_animal_product_inf (id, slaughter_batch_id, slaughter_id, 
+      quarantine_id, name, category, 
+      approval_standards, weight, price, 
+      package_time, shelf_life, expire_time, 
+      traceability_code, remark, gmt_create, 
+      gmt_modified, modified_id, product_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{slaughterId,jdbcType=INTEGER}, 
+      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{approvalStandards,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
+      #{packageTime,jdbcType=TIMESTAMP}, #{shelfLife,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP}, 
+      #{traceabilityCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.traceback.pojo.AnimalProduct">
+    insert into stm_animal_product_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="slaughterBatchId != null">
+        slaughter_batch_id,
+      </if>
+      <if test="slaughterId != null">
+        slaughter_id,
+      </if>
+      <if test="quarantineId != null">
+        quarantine_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="approvalStandards != null">
+        approval_standards,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="packageTime != null">
+        package_time,
+      </if>
+      <if test="shelfLife != null">
+        shelf_life,
+      </if>
+      <if test="expireTime != null">
+        expire_time,
+      </if>
+      <if test="traceabilityCode != null">
+        traceability_code,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="modifiedId != null">
+        modified_id,
+      </if>
+      <if test="productType != null">
+        product_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterBatchId != null">
+        #{slaughterBatchId,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterId != null">
+        #{slaughterId,jdbcType=INTEGER},
+      </if>
+      <if test="quarantineId != null">
+        #{quarantineId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalStandards != null">
+        #{approvalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="packageTime != null">
+        #{packageTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfLife != null">
+        #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="traceabilityCode != null">
+        #{traceabilityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null">
+        #{modifiedId,jdbcType=INTEGER},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.AnimalProduct">
+    update stm_animal_product_inf
+    <set>
+      <if test="slaughterBatchId != null">
+        slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterId != null">
+        slaughter_id = #{slaughterId,jdbcType=INTEGER},
+      </if>
+      <if test="quarantineId != null">
+        quarantine_id = #{quarantineId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalStandards != null">
+        approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="packageTime != null">
+        package_time = #{packageTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfLife != null">
+        shelf_life = #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="traceabilityCode != null">
+        traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null">
+        modified_id = #{modifiedId,jdbcType=INTEGER},
+      </if>
+      <if test="productType != null">
+        product_type = #{productType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.AnimalProduct">
+    update stm_animal_product_inf
+    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+      slaughter_id = #{slaughterId,jdbcType=INTEGER},
+      quarantine_id = #{quarantineId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      package_time = #{packageTime,jdbcType=TIMESTAMP},
+      shelf_life = #{shelfLife,jdbcType=INTEGER},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_id = #{modifiedId,jdbcType=INTEGER},
+      product_type = #{productType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.traceback.pojo.AnimalProduct">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="slaughter_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="approval_standards" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="package_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="shelf_life" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="expire_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="traceability_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="product_type" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, slaughter_batch_id, slaughter_id, quarantine_id, name, category, approval_standards, 
+    weight, price, package_time, shelf_life, expire_time, traceability_code, remark, 
+    gmt_create, gmt_modified, modified_id, product_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stm_animal_product_inf
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stm_animal_product_inf
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.traceback.pojo.AnimalProduct">
+    insert into stm_animal_product_inf (id, slaughter_batch_id, slaughter_id, 
+      quarantine_id, name, category, 
+      approval_standards, weight, price, 
+      package_time, shelf_life, expire_time, 
+      traceability_code, remark, gmt_create, 
+      gmt_modified, modified_id, product_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{slaughterId,jdbcType=INTEGER}, 
+      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{approvalStandards,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
+      #{packageTime,jdbcType=TIMESTAMP}, #{shelfLife,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP}, 
+      #{traceabilityCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.traceback.pojo.AnimalProduct">
+    insert into stm_animal_product_inf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="slaughterBatchId != null">
+        slaughter_batch_id,
+      </if>
+      <if test="slaughterId != null">
+        slaughter_id,
+      </if>
+      <if test="quarantineId != null">
+        quarantine_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="approvalStandards != null">
+        approval_standards,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="packageTime != null">
+        package_time,
+      </if>
+      <if test="shelfLife != null">
+        shelf_life,
+      </if>
+      <if test="expireTime != null">
+        expire_time,
+      </if>
+      <if test="traceabilityCode != null">
+        traceability_code,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="modifiedId != null">
+        modified_id,
+      </if>
+      <if test="productType != null">
+        product_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterBatchId != null">
+        #{slaughterBatchId,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterId != null">
+        #{slaughterId,jdbcType=INTEGER},
+      </if>
+      <if test="quarantineId != null">
+        #{quarantineId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalStandards != null">
+        #{approvalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="packageTime != null">
+        #{packageTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfLife != null">
+        #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="traceabilityCode != null">
+        #{traceabilityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null">
+        #{modifiedId,jdbcType=INTEGER},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.AnimalProduct">
+    update stm_animal_product_inf
+    <set>
+      <if test="slaughterBatchId != null">
+        slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+      </if>
+      <if test="slaughterId != null">
+        slaughter_id = #{slaughterId,jdbcType=INTEGER},
+      </if>
+      <if test="quarantineId != null">
+        quarantine_id = #{quarantineId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalStandards != null">
+        approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="packageTime != null">
+        package_time = #{packageTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shelfLife != null">
+        shelf_life = #{shelfLife,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="traceabilityCode != null">
+        traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null">
+        modified_id = #{modifiedId,jdbcType=INTEGER},
+      </if>
+      <if test="productType != null">
+        product_type = #{productType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.AnimalProduct">
+    update stm_animal_product_inf
+    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+      slaughter_id = #{slaughterId,jdbcType=INTEGER},
+      quarantine_id = #{quarantineId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      package_time = #{packageTime,jdbcType=TIMESTAMP},
+      shelf_life = #{shelfLife,jdbcType=INTEGER},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_id = #{modifiedId,jdbcType=INTEGER},
+      product_type = #{productType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
     <resultMap id="BaseResultMap" type="com.traceback.pojo.AnimalProduct">
         <constructor>
-            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="slaughter_batch_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="slaughter_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="quarantine_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="category" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="approval_standards" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="weight" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
-            <arg column="price" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
-            <arg column="package_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-            <arg column="shelf_life" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="expire_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-            <arg column="traceability_code" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-            <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-            <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="product_type" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="slaughter_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="approval_standards" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="package_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="shelf_life" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="expire_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="traceability_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="product_type" javaType="java.lang.Integer" jdbcType="INTEGER" />
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
@@ -28,9 +766,9 @@
         weight, price, package_time, shelf_life, expire_time, traceability_code, remark,
         gmt_create, gmt_modified, modified_id, product_type
     </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List" />
         from stm_animal_product_inf
         where id = #{id,jdbcType=INTEGER}
     </select>

@@ -1,17 +1,17 @@
 package com.traceback.dao;
 
-import com.traceback.pojo.userLoginLog;
+import com.traceback.pojo.UserLoginLog;
 
-public interface userLoginLogMapper {
+public interface UserLoginLogMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(userLoginLog record);
+    int insert(UserLoginLog record);
 
-    int insertSelective(userLoginLog record);
+    int insertSelective(UserLoginLog record);
 
-    userLoginLog selectByPrimaryKey(Integer id);
+    UserLoginLog selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(userLoginLog record);
+    int updateByPrimaryKeySelective(UserLoginLog record);
 
-    int updateByPrimaryKey(userLoginLog record);
+    int updateByPrimaryKey(UserLoginLog record);
 }

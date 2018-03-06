@@ -8,13 +8,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by 53254 on 2018/2/2 19:37 /mmal
- */
 @Slf4j
 public class FTPUtil {
 
-    //private static final Logger logger = LoggerFactory.getLogger(FTPUtil.class);
     private static String ftpIp = PropertiesUtil.getProperty("ftp.server.ip");
     private static String ftpUser = PropertiesUtil.getProperty("ftp.user");
     private static String ftpPass = PropertiesUtil.getProperty("ftp.pass");

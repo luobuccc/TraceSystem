@@ -7,9 +7,6 @@ import org.joda.time.format.DateTimeFormatter;
 
 import java.util.Date;
 
-/**
- * Created by 53254 on 2018/2/1 19:12 /mmal
- */
 public class DateTimeUtil {
 
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";

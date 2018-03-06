@@ -2,7 +2,7 @@ package com.traceback.pojo;
 
 import java.util.Date;
 
-public class userLoginLog {
+public class UserLoginLog {
     private Integer id;
 
     private Integer userId;
@@ -15,7 +15,7 @@ public class userLoginLog {
 
     private String ipAddress;
 
-    public userLoginLog(Integer id, Integer userId, Date loginTime, Date logoutTime, Integer status, String ipAddress) {
+    public UserLoginLog(Integer id, Integer userId, Date loginTime, Date logoutTime, Integer status, String ipAddress) {
         this.id = id;
         this.userId = userId;
         this.loginTime = loginTime;
@@ -24,7 +24,7 @@ public class userLoginLog {
         this.ipAddress = ipAddress;
     }
 
-    public userLoginLog() {
+    public UserLoginLog() {
         super();
     }
 

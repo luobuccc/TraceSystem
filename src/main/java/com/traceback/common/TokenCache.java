@@ -7,14 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by 53254 on 2018/1/29 18:51 /mmal
- */
 @Slf4j
 public class TokenCache {
     public static final String TOKEN_PREFIX = "token_";
     private static final String NULL = "null";
-    //private static Logger logger = LoggerFactory.getLogger(TokenCache.class);
     private static LoadingCache<String, String> localCache = CacheBuilder.newBuilder().initialCapacity(1000).maximumSize(10000)
             .expireAfterAccess(12, TimeUnit.HOURS).build(new CacheLoader<String, String>() {
                 //默认实现

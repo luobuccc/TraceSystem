@@ -160,7 +160,7 @@
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 
-        <table tableName="stm_userlogin_log" domainObjectName="userLoginLog" enableCountByExample="false"
+        <table tableName="stm_userlogin_log" domainObjectName="UserLoginLog" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 

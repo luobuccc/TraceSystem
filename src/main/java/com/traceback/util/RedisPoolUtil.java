@@ -4,9 +4,6 @@ import com.traceback.common.RedisPool;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 
-/**
- * Created by 53254 on 2018/3/6 10:44 /mmal
- */
 @Slf4j
 public class RedisPoolUtil {
 
@@ -84,15 +81,5 @@ public class RedisPoolUtil {
         }
         RedisPool.returnResource(jedis);
         return result;
-    }
-
-    public static void main(String[] args) {
-        Jedis jedis = RedisPool.getJedis();
-        RedisPoolUtil.set("text", "value");
-        String val = RedisPoolUtil.get("text");
-        RedisPoolUtil.setEx("ex", "val", 60 * 10);
-        RedisPoolUtil.expire("text", 60 * 5);
-        RedisPoolUtil.del("text");
-        System.out.println("end");
     }
 }

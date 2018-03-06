@@ -7,13 +7,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by 53254 on 2018/3/6 13:51 /mmal
- */
 @Slf4j
 public class CookieUtil {
     private final static String COOKIE_DOMAIN = ".imooc.com";
-    private final static String COOKIE_NAME = "mmall_login_token";
+    private final static String COOKIE_NAME = "traceBack_login_token";
 
     public static String readLoginToken(HttpServletRequest request) {
         Cookie[] cks = request.getCookies();
