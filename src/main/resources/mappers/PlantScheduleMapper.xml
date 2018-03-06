@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traceback.dao.PlantScheduleMapper">
+    <resultMap id="BaseResultMap" type="com.traceback.pojo.PlantSchedule">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="block_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="seed_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="planting_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="growing_age" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="harvest_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="planting_area" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+            <arg column="supervisor" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="estimated_harvest" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+            <arg column="actual_harvest" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+            <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, block_id, seed_id, planting_time, growing_age, harvest_time, planting_area, supervisor, 
+    estimated_harvest, actual_harvest, remark, status, gmt_create, gmt_modified, modified_id
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from stm_plant_schedule_inf
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stm_plant_schedule_inf
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.traceback.pojo.PlantSchedule">
+    insert into stm_plant_schedule_inf (id, block_id, seed_id, 
+      planting_time, growing_age, harvest_time, 
+      planting_area, supervisor, estimated_harvest, 
+      actual_harvest, remark, status, 
+      gmt_create, gmt_modified, modified_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{blockId,jdbcType=INTEGER}, #{seedId,jdbcType=INTEGER}, 
+      #{plantingTime,jdbcType=TIMESTAMP}, #{growingAge,jdbcType=VARCHAR}, #{harvestTime,jdbcType=TIMESTAMP}, 
+      #{plantingArea,jdbcType=DECIMAL}, #{supervisor,jdbcType=VARCHAR}, #{estimatedHarvest,jdbcType=DECIMAL}, 
+      #{actualHarvest,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.traceback.pojo.PlantSchedule">
+        insert into stm_plant_schedule_inf
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="blockId != null">
+                block_id,
+            </if>
+            <if test="seedId != null">
+                seed_id,
+            </if>
+            <if test="plantingTime != null">
+                planting_time,
+            </if>
+            <if test="growingAge != null">
+                growing_age,
+            </if>
+            <if test="harvestTime != null">
+                harvest_time,
+            </if>
+            <if test="plantingArea != null">
+                planting_area,
+            </if>
+            <if test="supervisor != null">
+                supervisor,
+            </if>
+            <if test="estimatedHarvest != null">
+                estimated_harvest,
+            </if>
+            <if test="actualHarvest != null">
+                actual_harvest,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="modifiedId != null">
+                modified_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="blockId != null">
+                #{blockId,jdbcType=INTEGER},
+            </if>
+            <if test="seedId != null">
+                #{seedId,jdbcType=INTEGER},
+            </if>
+            <if test="plantingTime != null">
+                #{plantingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="growingAge != null">
+                #{growingAge,jdbcType=VARCHAR},
+            </if>
+            <if test="harvestTime != null">
+                #{harvestTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="plantingArea != null">
+                #{plantingArea,jdbcType=DECIMAL},
+            </if>
+            <if test="supervisor != null">
+                #{supervisor,jdbcType=VARCHAR},
+            </if>
+            <if test="estimatedHarvest != null">
+                #{estimatedHarvest,jdbcType=DECIMAL},
+            </if>
+            <if test="actualHarvest != null">
+                #{actualHarvest,jdbcType=DECIMAL},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedId != null">
+                #{modifiedId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.PlantSchedule">
+        update stm_plant_schedule_inf
+        <set>
+            <if test="blockId != null">
+                block_id = #{blockId,jdbcType=INTEGER},
+            </if>
+            <if test="seedId != null">
+                seed_id = #{seedId,jdbcType=INTEGER},
+            </if>
+            <if test="plantingTime != null">
+                planting_time = #{plantingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="growingAge != null">
+                growing_age = #{growingAge,jdbcType=VARCHAR},
+            </if>
+            <if test="harvestTime != null">
+                harvest_time = #{harvestTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="plantingArea != null">
+                planting_area = #{plantingArea,jdbcType=DECIMAL},
+            </if>
+            <if test="supervisor != null">
+                supervisor = #{supervisor,jdbcType=VARCHAR},
+            </if>
+            <if test="estimatedHarvest != null">
+                estimated_harvest = #{estimatedHarvest,jdbcType=DECIMAL},
+            </if>
+            <if test="actualHarvest != null">
+                actual_harvest = #{actualHarvest,jdbcType=DECIMAL},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedId != null">
+                modified_id = #{modifiedId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.PlantSchedule">
+    update stm_plant_schedule_inf
+    set block_id = #{blockId,jdbcType=INTEGER},
+      seed_id = #{seedId,jdbcType=INTEGER},
+      planting_time = #{plantingTime,jdbcType=TIMESTAMP},
+      growing_age = #{growingAge,jdbcType=VARCHAR},
+      harvest_time = #{harvestTime,jdbcType=TIMESTAMP},
+      planting_area = #{plantingArea,jdbcType=DECIMAL},
+      supervisor = #{supervisor,jdbcType=VARCHAR},
+      estimated_harvest = #{estimatedHarvest,jdbcType=DECIMAL},
+      actual_harvest = #{actualHarvest,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_id = #{modifiedId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

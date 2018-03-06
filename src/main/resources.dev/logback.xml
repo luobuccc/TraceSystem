@@ -12,7 +12,7 @@
     </appender>
 
     <appender name="mmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--<File>d:/mmalllog/mmall.log</File>-->
+        <!--<File>d:/mmalllog/traceback.log</File>-->
         <File>E:/apache-tomcat-7.0.81-1/logs/mmall.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>E:/apache-tomcat-7.0.81-1/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
@@ -43,14 +43,14 @@
         </filter>
     </appender>
 
-    <logger name="com.mmall" additivity="false" level="INFO">
+    <logger name="com.traceback" additivity="false" level="INFO">
         <appender-ref ref="mmall"/>
         <appender-ref ref="console"/>
     </logger>
 
     <!-- geelynote mybatis log 日志 -->
 
-    <logger name="com.mmall.dao" level="DEBUG"/>
+    <logger name="com.traceback.dao" level="DEBUG"/>
     <!--<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" >-->
     <!--<appender-ref ref="console"/>-->
     <!--</logger>-->
