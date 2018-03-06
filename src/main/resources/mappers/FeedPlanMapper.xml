@@ -21,9 +21,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, plan_id, animal_id, name, feed_batch, feed_type, feed_time, method, amount, img, 
-    remark, status, gmt_create, gmt_modified, modified_id
-  </sql>
+        id, plan_id, animal_id, name, feed_batch, feed_type, feed_time, method, amount, img,
+        remark, status, gmt_create, gmt_modified, modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -35,19 +35,19 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.FeedPlan">
-    insert into stm_feed_plan (id, plan_id, animal_id, 
-      name, feed_batch, feed_type, 
-      feed_time, method, amount, 
-      img, remark, status, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{animalId,jdbcType=INTEGER}, 
-      #{name,jdbcType=VARCHAR}, #{feedBatch,jdbcType=VARCHAR}, #{feedType,jdbcType=VARCHAR}, 
-      #{feedTime,jdbcType=TIMESTAMP}, #{method,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, 
-      #{img,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_feed_plan (id, plan_id, animal_id,
+        name, feed_batch, feed_type,
+        feed_time, method, amount,
+        img, remark, status,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{animalId,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR}, #{feedBatch,jdbcType=VARCHAR}, #{feedType,jdbcType=VARCHAR},
+        #{feedTime,jdbcType=TIMESTAMP}, #{method,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER},
+        #{img,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.FeedPlan">
         insert into stm_feed_plan
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -194,21 +194,21 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.FeedPlan">
-    update stm_feed_plan
-    set plan_id = #{planId,jdbcType=INTEGER},
-      animal_id = #{animalId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      feed_batch = #{feedBatch,jdbcType=VARCHAR},
-      feed_type = #{feedType,jdbcType=VARCHAR},
-      feed_time = #{feedTime,jdbcType=TIMESTAMP},
-      method = #{method,jdbcType=VARCHAR},
-      amount = #{amount,jdbcType=INTEGER},
-      img = #{img,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_feed_plan
+        set plan_id = #{planId,jdbcType=INTEGER},
+        animal_id = #{animalId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        feed_batch = #{feedBatch,jdbcType=VARCHAR},
+        feed_type = #{feedType,jdbcType=VARCHAR},
+        feed_time = #{feedTime,jdbcType=TIMESTAMP},
+        method = #{method,jdbcType=VARCHAR},
+        amount = #{amount,jdbcType=INTEGER},
+        img = #{img,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

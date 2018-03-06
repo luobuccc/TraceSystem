@@ -29,15 +29,15 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.ProcessBatch">
-    insert into stm_process_batch_inf (id, plans_id, name, 
-      type, processing_status_id, remark, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{plansId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{processingStatusId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_process_batch_inf (id, plans_id, name,
+        type, processing_status_id, remark,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{plansId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{type,jdbcType=VARCHAR}, #{processingStatusId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.ProcessBatch">
         insert into stm_process_batch_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -130,15 +130,15 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.ProcessBatch">
-    update stm_process_batch_inf
-    set plans_id = #{plansId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      processing_status_id = #{processingStatusId,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_process_batch_inf
+        set plans_id = #{plansId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        type = #{type,jdbcType=VARCHAR},
+        processing_status_id = #{processingStatusId,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

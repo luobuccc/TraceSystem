@@ -28,11 +28,9 @@ public class SessionExpireFilter implements Filter {
             String userJsonStr = RedisPoolUtil.get(loginToken);
             User user = JsonUtil.string2Obj(userJsonStr, User.class);
             if (user != null) {
-
+//todo
             }
         }
-
-
     }
 
     @Override

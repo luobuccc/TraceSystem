@@ -19,9 +19,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, company_id, name, type, address, area, status, employee_num, home_num, remark, 
-    gmt_create, gmt_modified, modified_id
-  </sql>
+        id, company_id, name, type, address, area, status, employee_num, home_num, remark,
+        gmt_create, gmt_modified, modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -33,17 +33,17 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.BreedBase">
-    insert into stm_breed_base_inf (id, company_id, name, 
-      type, address, area, 
-      status, employee_num, home_num, 
-      remark, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{type,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{area,jdbcType=DECIMAL}, 
-      #{status,jdbcType=INTEGER}, #{employeeNum,jdbcType=INTEGER}, #{homeNum,jdbcType=INTEGER}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
+        insert into stm_breed_base_inf (id, company_id, name,
+        type, address, area,
+        status, employee_num, home_num,
+        remark, gmt_create, gmt_modified,
+        modified_id)
+        values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{type,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{area,jdbcType=DECIMAL},
+        #{status,jdbcType=INTEGER}, #{employeeNum,jdbcType=INTEGER}, #{homeNum,jdbcType=INTEGER},
+        #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{modifiedId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.BreedBase">
         insert into stm_breed_base_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -172,19 +172,19 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.BreedBase">
-    update stm_breed_base_inf
-    set company_id = #{companyId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      type = #{type,jdbcType=INTEGER},
-      address = #{address,jdbcType=VARCHAR},
-      area = #{area,jdbcType=DECIMAL},
-      status = #{status,jdbcType=INTEGER},
-      employee_num = #{employeeNum,jdbcType=INTEGER},
-      home_num = #{homeNum,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_breed_base_inf
+        set company_id = #{companyId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        type = #{type,jdbcType=INTEGER},
+        address = #{address,jdbcType=VARCHAR},
+        area = #{area,jdbcType=DECIMAL},
+        status = #{status,jdbcType=INTEGER},
+        employee_num = #{employeeNum,jdbcType=INTEGER},
+        home_num = #{homeNum,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

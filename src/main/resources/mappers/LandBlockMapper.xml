@@ -16,8 +16,8 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, base_id, name, area, soil, status, remark, gmt_create, gmt_modified, modified_id
-  </sql>
+        id, base_id, name, area, soil, status, remark, gmt_create, gmt_modified, modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -29,15 +29,15 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.LandBlock">
-    insert into stm_land_block_inf (id, base_id, name, 
-      area, soil, status, 
-      remark, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=INTEGER}, #{baseId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{area,jdbcType=DECIMAL}, #{soil,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
+        insert into stm_land_block_inf (id, base_id, name,
+        area, soil, status,
+        remark, gmt_create, gmt_modified,
+        modified_id)
+        values (#{id,jdbcType=INTEGER}, #{baseId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{area,jdbcType=DECIMAL}, #{soil,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+        #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{modifiedId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.LandBlock">
         insert into stm_land_block_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -139,16 +139,16 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.LandBlock">
-    update stm_land_block_inf
-    set base_id = #{baseId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      area = #{area,jdbcType=DECIMAL},
-      soil = #{soil,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_land_block_inf
+        set base_id = #{baseId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        area = #{area,jdbcType=DECIMAL},
+        soil = #{soil,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

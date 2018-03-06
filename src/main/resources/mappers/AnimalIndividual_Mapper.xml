@@ -38,19 +38,19 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.AnimalIndividual_">
-    insert into stm_animal_individual_inf (id, plan_id, home_id, 
-      name, variety_name, father_id, 
-      mother_id, in_time, health_state, 
-      out_time, out_notes, superior_source_code, 
-      status, remark, gmt_create, 
-      gmt_modified, modified_id)
-    values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{homeId,jdbcType=INTEGER}, 
-      #{name,jdbcType=VARCHAR}, #{varietyName,jdbcType=VARCHAR}, #{fatherId,jdbcType=INTEGER}, 
-      #{motherId,jdbcType=INTEGER}, #{inTime,jdbcType=TIMESTAMP}, #{healthState,jdbcType=VARCHAR}, 
-      #{outTime,jdbcType=TIMESTAMP}, #{outNotes,jdbcType=VARCHAR}, #{superiorSourceCode,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER})
-  </insert>
+        insert into stm_animal_individual_inf (id, plan_id, home_id,
+        name, variety_name, father_id,
+        mother_id, in_time, health_state,
+        out_time, out_notes, superior_source_code,
+        status, remark, gmt_create,
+        gmt_modified, modified_id)
+        values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{homeId,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR}, #{varietyName,jdbcType=VARCHAR}, #{fatherId,jdbcType=INTEGER},
+        #{motherId,jdbcType=INTEGER}, #{inTime,jdbcType=TIMESTAMP}, #{healthState,jdbcType=VARCHAR},
+        #{outTime,jdbcType=TIMESTAMP}, #{outNotes,jdbcType=VARCHAR}, #{superiorSourceCode,jdbcType=VARCHAR},
+        #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP},
+        #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.AnimalIndividual_">
         insert into stm_animal_individual_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -215,23 +215,23 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.AnimalIndividual_">
-    update stm_animal_individual_inf
-    set plan_id = #{planId,jdbcType=INTEGER},
-      home_id = #{homeId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      variety_name = #{varietyName,jdbcType=VARCHAR},
-      father_id = #{fatherId,jdbcType=INTEGER},
-      mother_id = #{motherId,jdbcType=INTEGER},
-      in_time = #{inTime,jdbcType=TIMESTAMP},
-      health_state = #{healthState,jdbcType=VARCHAR},
-      out_time = #{outTime,jdbcType=TIMESTAMP},
-      out_notes = #{outNotes,jdbcType=VARCHAR},
-      superior_source_code = #{superiorSourceCode,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_animal_individual_inf
+        set plan_id = #{planId,jdbcType=INTEGER},
+        home_id = #{homeId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        variety_name = #{varietyName,jdbcType=VARCHAR},
+        father_id = #{fatherId,jdbcType=INTEGER},
+        mother_id = #{motherId,jdbcType=INTEGER},
+        in_time = #{inTime,jdbcType=TIMESTAMP},
+        health_state = #{healthState,jdbcType=VARCHAR},
+        out_time = #{outTime,jdbcType=TIMESTAMP},
+        out_notes = #{outNotes,jdbcType=VARCHAR},
+        superior_source_code = #{superiorSourceCode,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

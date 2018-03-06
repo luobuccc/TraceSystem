@@ -26,13 +26,13 @@
         where id = #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.OrderLogistics">
-    insert into stm_order_logistics_inf (id, payment_status, shipment_number, 
-      remark, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{shipmentNumber,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
+        insert into stm_order_logistics_inf (id, payment_status, shipment_number,
+        remark, gmt_create, gmt_modified,
+        modified_id)
+        values (#{id,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{shipmentNumber,jdbcType=VARCHAR},
+        #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{modifiedId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.OrderLogistics">
         insert into stm_order_logistics_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -107,13 +107,13 @@
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.OrderLogistics">
-    update stm_order_logistics_inf
-    set payment_status = #{paymentStatus,jdbcType=INTEGER},
-      shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+        update stm_order_logistics_inf
+        set payment_status = #{paymentStatus,jdbcType=INTEGER},
+        shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 </mapper>

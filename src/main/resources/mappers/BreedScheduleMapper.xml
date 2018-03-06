@@ -15,9 +15,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, animal_num, starttime, supervisor, remark, status, gmt_create, gmt_modified, 
-    modified_id
-  </sql>
+        id, animal_num, starttime, supervisor, remark, status, gmt_create, gmt_modified,
+        modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -29,15 +29,15 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.BreedSchedule">
-    insert into stm_breed_schedule_inf (id, animal_num, starttime, 
-      supervisor, remark, status, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{animalNum,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, 
-      #{supervisor,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_breed_schedule_inf (id, animal_num, starttime,
+        supervisor, remark, status,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{animalNum,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP},
+        #{supervisor,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.BreedSchedule">
         insert into stm_breed_schedule_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -130,15 +130,15 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.BreedSchedule">
-    update stm_breed_schedule_inf
-    set animal_num = #{animalNum,jdbcType=INTEGER},
-      starttime = #{starttime,jdbcType=TIMESTAMP},
-      supervisor = #{supervisor,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_breed_schedule_inf
+        set animal_num = #{animalNum,jdbcType=INTEGER},
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+        supervisor = #{supervisor,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

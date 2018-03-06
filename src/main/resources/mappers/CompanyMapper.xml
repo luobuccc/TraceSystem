@@ -41,9 +41,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, type, name, address, supervisor, phone, email, logo, uniform_social_credit_code, 
-    zip_code, status, remark, gmt_create, gmt_modified, modified_id
-  </sql>
+        id, type, name, address, supervisor, phone, email, logo, uniform_social_credit_code,
+        zip_code, status, remark, gmt_create, gmt_modified, modified_id
+    </sql>
     <sql id="Blob_Column_List">
         introduction
     </sql>
@@ -60,19 +60,19 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.Company">
-    insert into stm_company_inf (id, type, name, 
-      address, supervisor, phone, 
-      email, logo, uniform_social_credit_code, 
-      zip_code, status, remark, 
-      gmt_create, gmt_modified, modified_id, 
-      introduction)
-    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{supervisor,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{uniformSocialCreditCode,jdbcType=VARCHAR}, 
-      #{zipCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}, 
-      #{introduction,jdbcType=LONGVARCHAR})
-  </insert>
+        insert into stm_company_inf (id, type, name,
+        address, supervisor, phone,
+        email, logo, uniform_social_credit_code,
+        zip_code, status, remark,
+        gmt_create, gmt_modified, modified_id,
+        introduction)
+        values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{address,jdbcType=VARCHAR}, #{supervisor,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{uniformSocialCreditCode,jdbcType=VARCHAR},
+        #{zipCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER},
+        #{introduction,jdbcType=LONGVARCHAR})
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.Company">
         insert into stm_company_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -228,40 +228,40 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.traceback.pojo.Company">
-    update stm_company_inf
-    set type = #{type,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
-      supervisor = #{supervisor,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      logo = #{logo,jdbcType=VARCHAR},
-      uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
-      zip_code = #{zipCode,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER},
-      introduction = #{introduction,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_company_inf
+        set type = #{type,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        address = #{address,jdbcType=VARCHAR},
+        supervisor = #{supervisor,jdbcType=VARCHAR},
+        phone = #{phone,jdbcType=VARCHAR},
+        email = #{email,jdbcType=VARCHAR},
+        logo = #{logo,jdbcType=VARCHAR},
+        uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
+        zip_code = #{zipCode,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER},
+        introduction = #{introduction,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.Company">
-    update stm_company_inf
-    set type = #{type,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
-      supervisor = #{supervisor,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      logo = #{logo,jdbcType=VARCHAR},
-      uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
-      zip_code = #{zipCode,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_company_inf
+        set type = #{type,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        address = #{address,jdbcType=VARCHAR},
+        supervisor = #{supervisor,jdbcType=VARCHAR},
+        phone = #{phone,jdbcType=VARCHAR},
+        email = #{email,jdbcType=VARCHAR},
+        logo = #{logo,jdbcType=VARCHAR},
+        uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
+        zip_code = #{zipCode,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

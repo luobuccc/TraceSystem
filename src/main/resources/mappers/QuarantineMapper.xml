@@ -29,15 +29,15 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.Quarantine">
-    insert into stm_quarantine_inf (id, animal_id, checker, 
-      quarantine_time, is_normal, remark, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{animalId,jdbcType=INTEGER}, #{checker,jdbcType=VARCHAR}, 
-      #{quarantineTime,jdbcType=TIMESTAMP}, #{isNormal,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_quarantine_inf (id, animal_id, checker,
+        quarantine_time, is_normal, remark,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{animalId,jdbcType=INTEGER}, #{checker,jdbcType=VARCHAR},
+        #{quarantineTime,jdbcType=TIMESTAMP}, #{isNormal,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.Quarantine">
         insert into stm_quarantine_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -130,15 +130,15 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.Quarantine">
-    update stm_quarantine_inf
-    set animal_id = #{animalId,jdbcType=INTEGER},
-      checker = #{checker,jdbcType=VARCHAR},
-      quarantine_time = #{quarantineTime,jdbcType=TIMESTAMP},
-      is_normal = #{isNormal,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_quarantine_inf
+        set animal_id = #{animalId,jdbcType=INTEGER},
+        checker = #{checker,jdbcType=VARCHAR},
+        quarantine_time = #{quarantineTime,jdbcType=TIMESTAMP},
+        is_normal = #{isNormal,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

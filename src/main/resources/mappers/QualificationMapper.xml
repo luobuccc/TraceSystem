@@ -32,17 +32,17 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.Qualification">
-    insert into stm_qualification_inf (id, company_id, name, 
-      qualification_number, issue_time, issue_unit, 
-      validity, attachment, remark, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{qualificationNumber,jdbcType=VARCHAR}, #{issueTime,jdbcType=TIMESTAMP}, #{issueUnit,jdbcType=VARCHAR}, 
-      #{validity,jdbcType=INTEGER}, #{attachment,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_qualification_inf (id, company_id, name,
+        qualification_number, issue_time, issue_unit,
+        validity, attachment, remark,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{qualificationNumber,jdbcType=VARCHAR}, #{issueTime,jdbcType=TIMESTAMP}, #{issueUnit,jdbcType=VARCHAR},
+        #{validity,jdbcType=INTEGER}, #{attachment,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.Qualification">
         insert into stm_qualification_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -162,18 +162,18 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.Qualification">
-    update stm_qualification_inf
-    set company_id = #{companyId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      qualification_number = #{qualificationNumber,jdbcType=VARCHAR},
-      issue_time = #{issueTime,jdbcType=TIMESTAMP},
-      issue_unit = #{issueUnit,jdbcType=VARCHAR},
-      validity = #{validity,jdbcType=INTEGER},
-      attachment = #{attachment,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_qualification_inf
+        set company_id = #{companyId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        qualification_number = #{qualificationNumber,jdbcType=VARCHAR},
+        issue_time = #{issueTime,jdbcType=TIMESTAMP},
+        issue_unit = #{issueUnit,jdbcType=VARCHAR},
+        validity = #{validity,jdbcType=INTEGER},
+        attachment = #{attachment,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

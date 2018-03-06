@@ -22,9 +22,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, plan_id, name, fret_batch, fret_type, supervisor, fret_time, method, amount, 
-    weather, img, remark, status, gmt_create, gmt_modified, modified_id
-  </sql>
+        id, plan_id, name, fret_batch, fret_type, supervisor, fret_time, method, amount,
+        weather, img, remark, status, gmt_create, gmt_modified, modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -36,19 +36,19 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.FertilizationPlan">
-    insert into stm_fertilization_plan (id, plan_id, name, 
-      fret_batch, fret_type, supervisor, 
-      fret_time, method, amount, 
-      weather, img, remark, 
-      status, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{fretBatch,jdbcType=VARCHAR}, #{fretType,jdbcType=VARCHAR}, #{supervisor,jdbcType=VARCHAR}, 
-      #{fretTime,jdbcType=TIMESTAMP}, #{method,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, 
-      #{weather,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
+        insert into stm_fertilization_plan (id, plan_id, name,
+        fret_batch, fret_type, supervisor,
+        fret_time, method, amount,
+        weather, img, remark,
+        status, gmt_create, gmt_modified,
+        modified_id)
+        values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{fretBatch,jdbcType=VARCHAR}, #{fretType,jdbcType=VARCHAR}, #{supervisor,jdbcType=VARCHAR},
+        #{fretTime,jdbcType=TIMESTAMP}, #{method,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL},
+        #{weather,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+        #{status,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{modifiedId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.FertilizationPlan">
         insert into stm_fertilization_plan
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -204,22 +204,22 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.FertilizationPlan">
-    update stm_fertilization_plan
-    set plan_id = #{planId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      fret_batch = #{fretBatch,jdbcType=VARCHAR},
-      fret_type = #{fretType,jdbcType=VARCHAR},
-      supervisor = #{supervisor,jdbcType=VARCHAR},
-      fret_time = #{fretTime,jdbcType=TIMESTAMP},
-      method = #{method,jdbcType=VARCHAR},
-      amount = #{amount,jdbcType=DECIMAL},
-      weather = #{weather,jdbcType=VARCHAR},
-      img = #{img,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_fertilization_plan
+        set plan_id = #{planId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        fret_batch = #{fretBatch,jdbcType=VARCHAR},
+        fret_type = #{fretType,jdbcType=VARCHAR},
+        supervisor = #{supervisor,jdbcType=VARCHAR},
+        fret_time = #{fretTime,jdbcType=TIMESTAMP},
+        method = #{method,jdbcType=VARCHAR},
+        amount = #{amount,jdbcType=DECIMAL},
+        weather = #{weather,jdbcType=VARCHAR},
+        img = #{img,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

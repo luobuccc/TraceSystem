@@ -18,9 +18,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, slaughter_batch_id, anamal_id, quarantine_id, name, weight, processing_id, slaughter_time, 
-    remark, gmt_create, gmt_modified, modified_id
-  </sql>
+        id, slaughter_batch_id, anamal_id, quarantine_id, name, weight, processing_id, slaughter_time,
+        remark, gmt_create, gmt_modified, modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -32,17 +32,17 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.SlaughterSingle">
-    insert into stm_slaughter_single_inf (id, slaughter_batch_id, anamal_id, 
-      quarantine_id, name, weight, 
-      processing_id, slaughter_time, remark, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{anamalId,jdbcType=INTEGER}, 
-      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, 
-      #{processingId,jdbcType=INTEGER}, #{slaughterTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_slaughter_single_inf (id, slaughter_batch_id, anamal_id,
+        quarantine_id, name, weight,
+        processing_id, slaughter_time, remark,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{anamalId,jdbcType=INTEGER},
+        #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL},
+        #{processingId,jdbcType=INTEGER}, #{slaughterTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.SlaughterSingle">
         insert into stm_slaughter_single_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -162,18 +162,18 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.SlaughterSingle">
-    update stm_slaughter_single_inf
-    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      anamal_id = #{anamalId,jdbcType=INTEGER},
-      quarantine_id = #{quarantineId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=DECIMAL},
-      processing_id = #{processingId,jdbcType=INTEGER},
-      slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_slaughter_single_inf
+        set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+        anamal_id = #{anamalId,jdbcType=INTEGER},
+        quarantine_id = #{quarantineId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        weight = #{weight,jdbcType=DECIMAL},
+        processing_id = #{processingId,jdbcType=INTEGER},
+        slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

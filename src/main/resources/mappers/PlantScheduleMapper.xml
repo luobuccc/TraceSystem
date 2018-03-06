@@ -21,9 +21,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, block_id, seed_id, planting_time, growing_age, harvest_time, planting_area, supervisor, 
-    estimated_harvest, actual_harvest, remark, status, gmt_create, gmt_modified, modified_id
-  </sql>
+        id, block_id, seed_id, planting_time, growing_age, harvest_time, planting_area, supervisor,
+        estimated_harvest, actual_harvest, remark, status, gmt_create, gmt_modified, modified_id
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -31,23 +31,23 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from stm_plant_schedule_inf
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from stm_plant_schedule_inf
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.traceback.pojo.PlantSchedule">
-    insert into stm_plant_schedule_inf (id, block_id, seed_id, 
-      planting_time, growing_age, harvest_time, 
-      planting_area, supervisor, estimated_harvest, 
-      actual_harvest, remark, status, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{blockId,jdbcType=INTEGER}, #{seedId,jdbcType=INTEGER}, 
-      #{plantingTime,jdbcType=TIMESTAMP}, #{growingAge,jdbcType=VARCHAR}, #{harvestTime,jdbcType=TIMESTAMP}, 
-      #{plantingArea,jdbcType=DECIMAL}, #{supervisor,jdbcType=VARCHAR}, #{estimatedHarvest,jdbcType=DECIMAL}, 
-      #{actualHarvest,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_plant_schedule_inf (id, block_id, seed_id,
+        planting_time, growing_age, harvest_time,
+        planting_area, supervisor, estimated_harvest,
+        actual_harvest, remark, status,
+        gmt_create, gmt_modified, modified_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{blockId,jdbcType=INTEGER}, #{seedId,jdbcType=INTEGER},
+        #{plantingTime,jdbcType=TIMESTAMP}, #{growingAge,jdbcType=VARCHAR}, #{harvestTime,jdbcType=TIMESTAMP},
+        #{plantingArea,jdbcType=DECIMAL}, #{supervisor,jdbcType=VARCHAR}, #{estimatedHarvest,jdbcType=DECIMAL},
+        #{actualHarvest,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.PlantSchedule">
         insert into stm_plant_schedule_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -194,21 +194,21 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.PlantSchedule">
-    update stm_plant_schedule_inf
-    set block_id = #{blockId,jdbcType=INTEGER},
-      seed_id = #{seedId,jdbcType=INTEGER},
-      planting_time = #{plantingTime,jdbcType=TIMESTAMP},
-      growing_age = #{growingAge,jdbcType=VARCHAR},
-      harvest_time = #{harvestTime,jdbcType=TIMESTAMP},
-      planting_area = #{plantingArea,jdbcType=DECIMAL},
-      supervisor = #{supervisor,jdbcType=VARCHAR},
-      estimated_harvest = #{estimatedHarvest,jdbcType=DECIMAL},
-      actual_harvest = #{actualHarvest,jdbcType=DECIMAL},
-      remark = #{remark,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_plant_schedule_inf
+        set block_id = #{blockId,jdbcType=INTEGER},
+        seed_id = #{seedId,jdbcType=INTEGER},
+        planting_time = #{plantingTime,jdbcType=TIMESTAMP},
+        growing_age = #{growingAge,jdbcType=VARCHAR},
+        harvest_time = #{harvestTime,jdbcType=TIMESTAMP},
+        planting_area = #{plantingArea,jdbcType=DECIMAL},
+        supervisor = #{supervisor,jdbcType=VARCHAR},
+        estimated_harvest = #{estimatedHarvest,jdbcType=DECIMAL},
+        actual_harvest = #{actualHarvest,jdbcType=DECIMAL},
+        remark = #{remark,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

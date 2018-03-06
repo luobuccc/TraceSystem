@@ -25,13 +25,13 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.userLoginLog">
-    insert into stm_userlogin_log (id, user_id, login_time, 
-      logout_time, status, ip_address
-      )
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP}, 
-      #{logoutTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{ipAddress,jdbcType=VARCHAR}
-      )
-  </insert>
+        insert into stm_userlogin_log (id, user_id, login_time,
+        logout_time, status, ip_address
+        )
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP},
+        #{logoutTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{ipAddress,jdbcType=VARCHAR}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.userLoginLog">
         insert into stm_userlogin_log
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -97,12 +97,12 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.userLoginLog">
-    update stm_userlogin_log
-    set user_id = #{userId,jdbcType=INTEGER},
-      login_time = #{loginTime,jdbcType=TIMESTAMP},
-      logout_time = #{logoutTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=INTEGER},
-      ip_address = #{ipAddress,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_userlogin_log
+        set user_id = #{userId,jdbcType=INTEGER},
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+        status = #{status,jdbcType=INTEGER},
+        ip_address = #{ipAddress,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

@@ -24,10 +24,10 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, slaughter_batch_id, slaughter_id, quarantine_id, name, category, approval_standards, 
-    weight, price, package_time, shelf_life, expire_time, traceability_code, remark, 
-    gmt_create, gmt_modified, modified_id, product_type
-  </sql>
+        id, slaughter_batch_id, slaughter_id, quarantine_id, name, category, approval_standards,
+        weight, price, package_time, shelf_life, expire_time, traceability_code, remark,
+        gmt_create, gmt_modified, modified_id, product_type
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -39,21 +39,21 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.traceback.pojo.AnimalProduct">
-    insert into stm_animal_product_inf (id, slaughter_batch_id, slaughter_id, 
-      quarantine_id, name, category, 
-      approval_standards, weight, price, 
-      package_time, shelf_life, expire_time, 
-      traceability_code, remark, gmt_create, 
-      gmt_modified, modified_id, product_type
-      )
-    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{slaughterId,jdbcType=INTEGER}, 
-      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
-      #{approvalStandards,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
-      #{packageTime,jdbcType=TIMESTAMP}, #{shelfLife,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP}, 
-      #{traceabilityCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into stm_animal_product_inf (id, slaughter_batch_id, slaughter_id,
+        quarantine_id, name, category,
+        approval_standards, weight, price,
+        package_time, shelf_life, expire_time,
+        traceability_code, remark, gmt_create,
+        gmt_modified, modified_id, product_type
+        )
+        values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{slaughterId,jdbcType=INTEGER},
+        #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR},
+        #{approvalStandards,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL},
+        #{packageTime,jdbcType=TIMESTAMP}, #{shelfLife,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP},
+        #{traceabilityCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP},
+        #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}, #{productType,jdbcType=INTEGER}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.traceback.pojo.AnimalProduct">
         insert into stm_animal_product_inf
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -227,24 +227,24 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.AnimalProduct">
-    update stm_animal_product_inf
-    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      slaughter_id = #{slaughterId,jdbcType=INTEGER},
-      quarantine_id = #{quarantineId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      category = #{category,jdbcType=VARCHAR},
-      approval_standards = #{approvalStandards,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=DECIMAL},
-      price = #{price,jdbcType=DECIMAL},
-      package_time = #{packageTime,jdbcType=TIMESTAMP},
-      shelf_life = #{shelfLife,jdbcType=INTEGER},
-      expire_time = #{expireTime,jdbcType=TIMESTAMP},
-      traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER},
-      product_type = #{productType,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update stm_animal_product_inf
+        set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
+        slaughter_id = #{slaughterId,jdbcType=INTEGER},
+        quarantine_id = #{quarantineId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        category = #{category,jdbcType=VARCHAR},
+        approval_standards = #{approvalStandards,jdbcType=VARCHAR},
+        weight = #{weight,jdbcType=DECIMAL},
+        price = #{price,jdbcType=DECIMAL},
+        package_time = #{packageTime,jdbcType=TIMESTAMP},
+        shelf_life = #{shelfLife,jdbcType=INTEGER},
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+        traceability_code = #{traceabilityCode,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER},
+        product_type = #{productType,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>
