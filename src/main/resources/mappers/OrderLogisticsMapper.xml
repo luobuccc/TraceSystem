@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.traceback.dao.OrderLogisticsMapper">
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.OrderLogistics">
-    <constructor>
-      <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="payment_status" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="shipment_number" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traceback.dao.OrderLogisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.traceback.pojo.OrderLogistics" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="payment_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="shipment_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, payment_status, shipment_number, remark, gmt_create, gmt_modified, modified_id
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from stm_order_logistics_inf
     where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from stm_order_logistics_inf
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.OrderLogistics">
+  <insert id="insert" parameterType="com.traceback.pojo.OrderLogistics" >
     insert into stm_order_logistics_inf (id, payment_status, shipment_number, 
       remark, gmt_create, gmt_modified, 
       modified_id)
@@ -33,80 +33,80 @@
       #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{modifiedId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.OrderLogistics">
+  <insert id="insertSelective" parameterType="com.traceback.pojo.OrderLogistics" >
     insert into stm_order_logistics_inf
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="paymentStatus != null">
+      <if test="paymentStatus != null" >
         payment_status,
       </if>
-      <if test="shipmentNumber != null">
+      <if test="shipmentNumber != null" >
         shipment_number,
       </if>
-      <if test="remark != null">
+      <if test="remark != null" >
         remark,
       </if>
-      <if test="gmtCreate != null">
+      <if test="gmtCreate != null" >
         gmt_create,
       </if>
-      <if test="gmtModified != null">
+      <if test="gmtModified != null" >
         gmt_modified,
       </if>
-      <if test="modifiedId != null">
+      <if test="modifiedId != null" >
         modified_id,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="paymentStatus != null">
+      <if test="paymentStatus != null" >
         #{paymentStatus,jdbcType=INTEGER},
       </if>
-      <if test="shipmentNumber != null">
+      <if test="shipmentNumber != null" >
         #{shipmentNumber,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null">
+      <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="gmtCreate != null">
+      <if test="gmtCreate != null" >
         #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="gmtModified != null">
+      <if test="gmtModified != null" >
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="modifiedId != null">
+      <if test="modifiedId != null" >
         #{modifiedId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.OrderLogistics">
+  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.OrderLogistics" >
     update stm_order_logistics_inf
-    <set>
-      <if test="paymentStatus != null">
+    <set >
+      <if test="paymentStatus != null" >
         payment_status = #{paymentStatus,jdbcType=INTEGER},
       </if>
-      <if test="shipmentNumber != null">
+      <if test="shipmentNumber != null" >
         shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null">
+      <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="gmtCreate != null">
+      <if test="gmtCreate != null" >
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="gmtModified != null">
+      <if test="gmtModified != null" >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="modifiedId != null">
+      <if test="modifiedId != null" >
         modified_id = #{modifiedId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.OrderLogistics">
+  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.OrderLogistics" >
     update stm_order_logistics_inf
     set payment_status = #{paymentStatus,jdbcType=INTEGER},
       shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
@@ -116,349 +116,4 @@
       modified_id = #{modifiedId,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.OrderLogistics">
-    <constructor>
-      <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="payment_status" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="shipment_number" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, payment_status, shipment_number, remark, gmt_create, gmt_modified, modified_id
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from stm_order_logistics_inf
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from stm_order_logistics_inf
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.OrderLogistics">
-    insert into stm_order_logistics_inf (id, payment_status, shipment_number, 
-      remark, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{shipmentNumber,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.OrderLogistics">
-    insert into stm_order_logistics_inf
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="paymentStatus != null">
-        payment_status,
-      </if>
-      <if test="shipmentNumber != null">
-        shipment_number,
-      </if>
-      <if test="remark != null">
-        remark,
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
-      <if test="modifiedId != null">
-        modified_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="paymentStatus != null">
-        #{paymentStatus,jdbcType=INTEGER},
-      </if>
-      <if test="shipmentNumber != null">
-        #{shipmentNumber,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.OrderLogistics">
-    update stm_order_logistics_inf
-    <set>
-      <if test="paymentStatus != null">
-        payment_status = #{paymentStatus,jdbcType=INTEGER},
-      </if>
-      <if test="shipmentNumber != null">
-        shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null">
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        modified_id = #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.OrderLogistics">
-    update stm_order_logistics_inf
-    set payment_status = #{paymentStatus,jdbcType=INTEGER},
-      shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.OrderLogistics">
-    <constructor>
-      <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="payment_status" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="shipment_number" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, payment_status, shipment_number, remark, gmt_create, gmt_modified, modified_id
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from stm_order_logistics_inf
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from stm_order_logistics_inf
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.OrderLogistics">
-    insert into stm_order_logistics_inf (id, payment_status, shipment_number, 
-      remark, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{shipmentNumber,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.OrderLogistics">
-    insert into stm_order_logistics_inf
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="paymentStatus != null">
-        payment_status,
-      </if>
-      <if test="shipmentNumber != null">
-        shipment_number,
-      </if>
-      <if test="remark != null">
-        remark,
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
-      <if test="modifiedId != null">
-        modified_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="paymentStatus != null">
-        #{paymentStatus,jdbcType=INTEGER},
-      </if>
-      <if test="shipmentNumber != null">
-        #{shipmentNumber,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.OrderLogistics">
-    update stm_order_logistics_inf
-    <set>
-      <if test="paymentStatus != null">
-        payment_status = #{paymentStatus,jdbcType=INTEGER},
-      </if>
-      <if test="shipmentNumber != null">
-        shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null">
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        modified_id = #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.OrderLogistics">
-    update stm_order_logistics_inf
-    set payment_status = #{paymentStatus,jdbcType=INTEGER},
-      shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-    <resultMap id="BaseResultMap" type="com.traceback.pojo.OrderLogistics">
-        <constructor>
-            <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="payment_status" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="shipment_number" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
-        id, payment_status, shipment_number, remark, gmt_create, gmt_modified, modified_id
-    </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List" />
-        from stm_order_logistics_inf
-        where id = #{id,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from stm_order_logistics_inf
-        where id = #{id,jdbcType=VARCHAR}
-    </delete>
-    <insert id="insert" parameterType="com.traceback.pojo.OrderLogistics">
-        insert into stm_order_logistics_inf (id, payment_status, shipment_number,
-        remark, gmt_create, gmt_modified,
-        modified_id)
-        values (#{id,jdbcType=VARCHAR}, #{paymentStatus,jdbcType=INTEGER}, #{shipmentNumber,jdbcType=VARCHAR},
-        #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
-        #{modifiedId,jdbcType=INTEGER})
-    </insert>
-    <insert id="insertSelective" parameterType="com.traceback.pojo.OrderLogistics">
-        insert into stm_order_logistics_inf
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="paymentStatus != null">
-                payment_status,
-            </if>
-            <if test="shipmentNumber != null">
-                shipment_number,
-            </if>
-            <if test="remark != null">
-                remark,
-            </if>
-            <if test="gmtCreate != null">
-                gmt_create,
-            </if>
-            <if test="gmtModified != null">
-                gmt_modified,
-            </if>
-            <if test="modifiedId != null">
-                modified_id,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=VARCHAR},
-            </if>
-            <if test="paymentStatus != null">
-                #{paymentStatus,jdbcType=INTEGER},
-            </if>
-            <if test="shipmentNumber != null">
-                #{shipmentNumber,jdbcType=VARCHAR},
-            </if>
-            <if test="remark != null">
-                #{remark,jdbcType=VARCHAR},
-            </if>
-            <if test="gmtCreate != null">
-                #{gmtCreate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="gmtModified != null">
-                #{gmtModified,jdbcType=TIMESTAMP},
-            </if>
-            <if test="modifiedId != null">
-                #{modifiedId,jdbcType=INTEGER},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.OrderLogistics">
-        update stm_order_logistics_inf
-        <set>
-            <if test="paymentStatus != null">
-                payment_status = #{paymentStatus,jdbcType=INTEGER},
-            </if>
-            <if test="shipmentNumber != null">
-                shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-            </if>
-            <if test="remark != null">
-                remark = #{remark,jdbcType=VARCHAR},
-            </if>
-            <if test="gmtCreate != null">
-                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="gmtModified != null">
-                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-            </if>
-            <if test="modifiedId != null">
-                modified_id = #{modifiedId,jdbcType=INTEGER},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.OrderLogistics">
-        update stm_order_logistics_inf
-        set payment_status = #{paymentStatus,jdbcType=INTEGER},
-        shipment_number = #{shipmentNumber,jdbcType=VARCHAR},
-        remark = #{remark,jdbcType=VARCHAR},
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-        modified_id = #{modifiedId,jdbcType=INTEGER}
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
 </mapper>

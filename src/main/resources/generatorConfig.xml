@@ -65,7 +65,7 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="stm_animal_individual_inf" domainObjectName="AnimalIndividual_" enableCountByExample="false"
+        <table tableName="stm_animal_individual_inf" domainObjectName="AnimalIndividual" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 
@@ -101,7 +101,6 @@
         <table tableName="stm_land_block_inf" domainObjectName="LandBlock" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
-
 
         <table tableName="stm_land_penshome_inf" domainObjectName="PenHome" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"

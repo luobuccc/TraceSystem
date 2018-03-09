@@ -24,8 +24,6 @@ public class FertilizationPlan {
 
     private String weather;
 
-    private String img;
-
     private String remark;
 
     private Integer status;
@@ -36,7 +34,7 @@ public class FertilizationPlan {
 
     private Integer modifiedId;
 
-    public FertilizationPlan(Integer id, Integer planId, String name, String fretBatch, String fretType, String supervisor, Date fretTime, String method, BigDecimal amount, String weather, String img, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
+    public FertilizationPlan(Integer id, Integer planId, String name, String fretBatch, String fretType, String supervisor, Date fretTime, String method, BigDecimal amount, String weather, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.planId = planId;
         this.name = name;
@@ -47,7 +45,6 @@ public class FertilizationPlan {
         this.method = method;
         this.amount = amount;
         this.weather = weather;
-        this.img = img;
         this.remark = remark;
         this.status = status;
         this.gmtCreate = gmtCreate;
@@ -137,14 +134,6 @@ public class FertilizationPlan {
 
     public void setWeather(String weather) {
         this.weather = weather == null ? null : weather.trim();
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img == null ? null : img.trim();
     }
 
     public String getRemark() {

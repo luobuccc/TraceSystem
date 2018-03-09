@@ -7,6 +7,8 @@ public class UserLoginLog {
 
     private Integer userId;
 
+    private String username;
+
     private Date loginTime;
 
     private Date logoutTime;
@@ -15,9 +17,10 @@ public class UserLoginLog {
 
     private String ipAddress;
 
-    public UserLoginLog(Integer id, Integer userId, Date loginTime, Date logoutTime, Integer status, String ipAddress) {
+    public UserLoginLog(Integer id, Integer userId, String username, Date loginTime, Date logoutTime, Integer status, String ipAddress) {
         this.id = id;
         this.userId = userId;
+        this.username = username;
         this.loginTime = loginTime;
         this.logoutTime = logoutTime;
         this.status = status;
@@ -42,6 +45,14 @@ public class UserLoginLog {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public Date getLoginTime() {

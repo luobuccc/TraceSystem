@@ -14,8 +14,6 @@ public class AnimalProduct {
 
     private String name;
 
-    private String category;
-
     private String approvalStandards;
 
     private BigDecimal weight;
@@ -38,15 +36,12 @@ public class AnimalProduct {
 
     private Integer modifiedId;
 
-    private Integer productType;
-
-    public AnimalProduct(Integer id, Integer slaughterBatchId, Integer slaughterId, Integer quarantineId, String name, String category, String approvalStandards, BigDecimal weight, BigDecimal price, Date packageTime, Integer shelfLife, Date expireTime, String traceabilityCode, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId, Integer productType) {
+    public AnimalProduct(Integer id, Integer slaughterBatchId, Integer slaughterId, Integer quarantineId, String name, String approvalStandards, BigDecimal weight, BigDecimal price, Date packageTime, Integer shelfLife, Date expireTime, String traceabilityCode, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.slaughterBatchId = slaughterBatchId;
         this.slaughterId = slaughterId;
         this.quarantineId = quarantineId;
         this.name = name;
-        this.category = category;
         this.approvalStandards = approvalStandards;
         this.weight = weight;
         this.price = price;
@@ -58,7 +53,6 @@ public class AnimalProduct {
         this.gmtCreate = gmtCreate;
         this.gmtModified = gmtModified;
         this.modifiedId = modifiedId;
-        this.productType = productType;
     }
 
     public AnimalProduct() {
@@ -103,14 +97,6 @@ public class AnimalProduct {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category == null ? null : category.trim();
     }
 
     public String getApprovalStandards() {
@@ -199,13 +185,5 @@ public class AnimalProduct {
 
     public void setModifiedId(Integer modifiedId) {
         this.modifiedId = modifiedId;
-    }
-
-    public Integer getProductType() {
-        return productType;
-    }
-
-    public void setProductType(Integer productType) {
-        this.productType = productType;
     }
 }

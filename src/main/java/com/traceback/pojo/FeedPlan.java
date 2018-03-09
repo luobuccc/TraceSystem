@@ -21,8 +21,6 @@ public class FeedPlan {
 
     private Integer amount;
 
-    private String img;
-
     private String remark;
 
     private Integer status;
@@ -33,7 +31,7 @@ public class FeedPlan {
 
     private Integer modifiedId;
 
-    public FeedPlan(Integer id, Integer planId, Integer animalId, String name, String feedBatch, String feedType, Date feedTime, String method, Integer amount, String img, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
+    public FeedPlan(Integer id, Integer planId, Integer animalId, String name, String feedBatch, String feedType, Date feedTime, String method, Integer amount, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.planId = planId;
         this.animalId = animalId;
@@ -43,7 +41,6 @@ public class FeedPlan {
         this.feedTime = feedTime;
         this.method = method;
         this.amount = amount;
-        this.img = img;
         this.remark = remark;
         this.status = status;
         this.gmtCreate = gmtCreate;
@@ -125,14 +122,6 @@ public class FeedPlan {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img == null ? null : img.trim();
     }
 
     public String getRemark() {

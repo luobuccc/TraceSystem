@@ -26,8 +26,6 @@ public class PesticidePlan {
 
     private String weather;
 
-    private String img;
-
     private String remark;
 
     private Integer status;
@@ -38,7 +36,7 @@ public class PesticidePlan {
 
     private Integer modifiedId;
 
-    public PesticidePlan(Integer id, Integer planId, String name, String drugBatch, String object, String supervisor, Date drugTime, String method, BigDecimal amount, BigDecimal dilution, String weather, String img, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
+    public PesticidePlan(Integer id, Integer planId, String name, String drugBatch, String object, String supervisor, Date drugTime, String method, BigDecimal amount, BigDecimal dilution, String weather, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.planId = planId;
         this.name = name;
@@ -50,7 +48,6 @@ public class PesticidePlan {
         this.amount = amount;
         this.dilution = dilution;
         this.weather = weather;
-        this.img = img;
         this.remark = remark;
         this.status = status;
         this.gmtCreate = gmtCreate;
@@ -148,14 +145,6 @@ public class PesticidePlan {
 
     public void setWeather(String weather) {
         this.weather = weather == null ? null : weather.trim();
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img == null ? null : img.trim();
     }
 
     public String getRemark() {

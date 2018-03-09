@@ -17,8 +17,6 @@ public class Company {
 
     private String email;
 
-    private String logo;
-
     private String uniformSocialCreditCode;
 
     private String zipCode;
@@ -35,7 +33,7 @@ public class Company {
 
     private String introduction;
 
-    public Company(Integer id, Integer type, String name, String address, String supervisor, String phone, String email, String logo, String uniformSocialCreditCode, String zipCode, Integer status, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId, String introduction) {
+    public Company(Integer id, Integer type, String name, String address, String supervisor, String phone, String email, String uniformSocialCreditCode, String zipCode, Integer status, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId, String introduction) {
         this.id = id;
         this.type = type;
         this.name = name;
@@ -43,7 +41,6 @@ public class Company {
         this.supervisor = supervisor;
         this.phone = phone;
         this.email = email;
-        this.logo = logo;
         this.uniformSocialCreditCode = uniformSocialCreditCode;
         this.zipCode = zipCode;
         this.status = status;
@@ -112,14 +109,6 @@ public class Company {
 
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo == null ? null : logo.trim();
     }
 
     public String getUniformSocialCreditCode() {

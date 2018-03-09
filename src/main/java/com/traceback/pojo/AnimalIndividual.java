@@ -2,24 +2,18 @@ package com.traceback.pojo;
 
 import java.util.Date;
 
-public class AnimalIndividual_ {
+public class AnimalIndividual {
     private Integer id;
 
     private Integer planId;
 
     private Integer homeId;
 
-    private String name;
+    private Integer earId;
 
     private String varietyName;
 
-    private Integer fatherId;
-
-    private Integer motherId;
-
     private Date inTime;
-
-    private String healthState;
 
     private Date outTime;
 
@@ -37,16 +31,13 @@ public class AnimalIndividual_ {
 
     private Integer modifiedId;
 
-    public AnimalIndividual_(Integer id, Integer planId, Integer homeId, String name, String varietyName, Integer fatherId, Integer motherId, Date inTime, String healthState, Date outTime, String outNotes, String superiorSourceCode, Integer status, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId) {
+    public AnimalIndividual(Integer id, Integer planId, Integer homeId, Integer earId, String varietyName, Date inTime, Date outTime, String outNotes, String superiorSourceCode, Integer status, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.planId = planId;
         this.homeId = homeId;
-        this.name = name;
+        this.earId = earId;
         this.varietyName = varietyName;
-        this.fatherId = fatherId;
-        this.motherId = motherId;
         this.inTime = inTime;
-        this.healthState = healthState;
         this.outTime = outTime;
         this.outNotes = outNotes;
         this.superiorSourceCode = superiorSourceCode;
@@ -57,7 +48,7 @@ public class AnimalIndividual_ {
         this.modifiedId = modifiedId;
     }
 
-    public AnimalIndividual_() {
+    public AnimalIndividual() {
         super();
     }
 
@@ -85,12 +76,12 @@ public class AnimalIndividual_ {
         this.homeId = homeId;
     }
 
-    public String getName() {
-        return name;
+    public Integer getEarId() {
+        return earId;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setEarId(Integer earId) {
+        this.earId = earId;
     }
 
     public String getVarietyName() {
@@ -101,36 +92,12 @@ public class AnimalIndividual_ {
         this.varietyName = varietyName == null ? null : varietyName.trim();
     }
 
-    public Integer getFatherId() {
-        return fatherId;
-    }
-
-    public void setFatherId(Integer fatherId) {
-        this.fatherId = fatherId;
-    }
-
-    public Integer getMotherId() {
-        return motherId;
-    }
-
-    public void setMotherId(Integer motherId) {
-        this.motherId = motherId;
-    }
-
     public Date getInTime() {
         return inTime;
     }
 
     public void setInTime(Date inTime) {
         this.inTime = inTime;
-    }
-
-    public String getHealthState() {
-        return healthState;
-    }
-
-    public void setHealthState(String healthState) {
-        this.healthState = healthState == null ? null : healthState.trim();
     }
 
     public Date getOutTime() {

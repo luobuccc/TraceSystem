@@ -8,7 +8,7 @@ public class SlaughterSingle {
 
     private Integer slaughterBatchId;
 
-    private Integer anamalId;
+    private Integer animalId;
 
     private Integer quarantineId;
 
@@ -28,10 +28,10 @@ public class SlaughterSingle {
 
     private Integer modifiedId;
 
-    public SlaughterSingle(Integer id, Integer slaughterBatchId, Integer anamalId, Integer quarantineId, String name, BigDecimal weight, Integer processingId, Date slaughterTime, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId) {
+    public SlaughterSingle(Integer id, Integer slaughterBatchId, Integer animalId, Integer quarantineId, String name, BigDecimal weight, Integer processingId, Date slaughterTime, String remark, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.slaughterBatchId = slaughterBatchId;
-        this.anamalId = anamalId;
+        this.animalId = animalId;
         this.quarantineId = quarantineId;
         this.name = name;
         this.weight = weight;
@@ -63,12 +63,12 @@ public class SlaughterSingle {
         this.slaughterBatchId = slaughterBatchId;
     }
 
-    public Integer getAnamalId() {
-        return anamalId;
+    public Integer getAnimalId() {
+        return animalId;
     }
 
-    public void setAnamalId(Integer anamalId) {
-        this.anamalId = anamalId;
+    public void setAnimalId(Integer animalId) {
+        this.animalId = animalId;
     }
 
     public Integer getQuarantineId() {

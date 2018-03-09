@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traceback.dao.AnimalIndividualMapper" >
+  <resultMap id="BaseResultMap" type="com.traceback.pojo.AnimalIndividual" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="plan_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="home_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ear_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="variety_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="in_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="out_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="out_notes" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="superior_source_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, plan_id, home_id, ear_id, variety_name, in_time, out_time, out_notes, superior_source_code, 
+    status, remark, gmt_create, gmt_modified, modified_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from stm_animal_individual_inf
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stm_animal_individual_inf
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.traceback.pojo.AnimalIndividual" >
+    insert into stm_animal_individual_inf (id, plan_id, home_id, 
+      ear_id, variety_name, in_time, 
+      out_time, out_notes, superior_source_code, 
+      status, remark, gmt_create, 
+      gmt_modified, modified_id)
+    values (#{id,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, #{homeId,jdbcType=INTEGER}, 
+      #{earId,jdbcType=INTEGER}, #{varietyName,jdbcType=VARCHAR}, #{inTime,jdbcType=TIMESTAMP}, 
+      #{outTime,jdbcType=TIMESTAMP}, #{outNotes,jdbcType=VARCHAR}, #{superiorSourceCode,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.traceback.pojo.AnimalIndividual" >
+    insert into stm_animal_individual_inf
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="planId != null" >
+        plan_id,
+      </if>
+      <if test="homeId != null" >
+        home_id,
+      </if>
+      <if test="earId != null" >
+        ear_id,
+      </if>
+      <if test="varietyName != null" >
+        variety_name,
+      </if>
+      <if test="inTime != null" >
+        in_time,
+      </if>
+      <if test="outTime != null" >
+        out_time,
+      </if>
+      <if test="outNotes != null" >
+        out_notes,
+      </if>
+      <if test="superiorSourceCode != null" >
+        superior_source_code,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedId != null" >
+        modified_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null" >
+        #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="homeId != null" >
+        #{homeId,jdbcType=INTEGER},
+      </if>
+      <if test="earId != null" >
+        #{earId,jdbcType=INTEGER},
+      </if>
+      <if test="varietyName != null" >
+        #{varietyName,jdbcType=VARCHAR},
+      </if>
+      <if test="inTime != null" >
+        #{inTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outTime != null" >
+        #{outTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outNotes != null" >
+        #{outNotes,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorSourceCode != null" >
+        #{superiorSourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null" >
+        #{modifiedId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.AnimalIndividual" >
+    update stm_animal_individual_inf
+    <set >
+      <if test="planId != null" >
+        plan_id = #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="homeId != null" >
+        home_id = #{homeId,jdbcType=INTEGER},
+      </if>
+      <if test="earId != null" >
+        ear_id = #{earId,jdbcType=INTEGER},
+      </if>
+      <if test="varietyName != null" >
+        variety_name = #{varietyName,jdbcType=VARCHAR},
+      </if>
+      <if test="inTime != null" >
+        in_time = #{inTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outTime != null" >
+        out_time = #{outTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outNotes != null" >
+        out_notes = #{outNotes,jdbcType=VARCHAR},
+      </if>
+      <if test="superiorSourceCode != null" >
+        superior_source_code = #{superiorSourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedId != null" >
+        modified_id = #{modifiedId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.AnimalIndividual" >
+    update stm_animal_individual_inf
+    set plan_id = #{planId,jdbcType=INTEGER},
+      home_id = #{homeId,jdbcType=INTEGER},
+      ear_id = #{earId,jdbcType=INTEGER},
+      variety_name = #{varietyName,jdbcType=VARCHAR},
+      in_time = #{inTime,jdbcType=TIMESTAMP},
+      out_time = #{outTime,jdbcType=TIMESTAMP},
+      out_notes = #{outNotes,jdbcType=VARCHAR},
+      superior_source_code = #{superiorSourceCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_id = #{modifiedId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

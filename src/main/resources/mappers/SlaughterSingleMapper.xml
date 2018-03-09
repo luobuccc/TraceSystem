@@ -1,170 +1,170 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.traceback.dao.SlaughterSingleMapper">
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.SlaughterSingle">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="anamal_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
-      <arg column="processing_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="slaughter_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traceback.dao.SlaughterSingleMapper" >
+  <resultMap id="BaseResultMap" type="com.traceback.pojo.SlaughterSingle" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="slaughter_batch_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="animal_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="quarantine_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="weight" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="processing_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="slaughter_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
-    id, slaughter_batch_id, anamal_id, quarantine_id, name, weight, processing_id, slaughter_time, 
+  <sql id="Base_Column_List" >
+    id, slaughter_batch_id, animal_id, quarantine_id, name, weight, processing_id, slaughter_time, 
     remark, gmt_create, gmt_modified, modified_id
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from stm_slaughter_single_inf
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from stm_slaughter_single_inf
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.SlaughterSingle">
-    insert into stm_slaughter_single_inf (id, slaughter_batch_id, anamal_id, 
+  <insert id="insert" parameterType="com.traceback.pojo.SlaughterSingle" >
+    insert into stm_slaughter_single_inf (id, slaughter_batch_id, animal_id, 
       quarantine_id, name, weight, 
       processing_id, slaughter_time, remark, 
       gmt_create, gmt_modified, modified_id
       )
-    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{anamalId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{animalId,jdbcType=INTEGER}, 
       #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, 
       #{processingId,jdbcType=INTEGER}, #{slaughterTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
       #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.SlaughterSingle">
+  <insert id="insertSelective" parameterType="com.traceback.pojo.SlaughterSingle" >
     insert into stm_slaughter_single_inf
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="slaughterBatchId != null">
+      <if test="slaughterBatchId != null" >
         slaughter_batch_id,
       </if>
-      <if test="anamalId != null">
-        anamal_id,
+      <if test="animalId != null" >
+        animal_id,
       </if>
-      <if test="quarantineId != null">
+      <if test="quarantineId != null" >
         quarantine_id,
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         name,
       </if>
-      <if test="weight != null">
+      <if test="weight != null" >
         weight,
       </if>
-      <if test="processingId != null">
+      <if test="processingId != null" >
         processing_id,
       </if>
-      <if test="slaughterTime != null">
+      <if test="slaughterTime != null" >
         slaughter_time,
       </if>
-      <if test="remark != null">
+      <if test="remark != null" >
         remark,
       </if>
-      <if test="gmtCreate != null">
+      <if test="gmtCreate != null" >
         gmt_create,
       </if>
-      <if test="gmtModified != null">
+      <if test="gmtModified != null" >
         gmt_modified,
       </if>
-      <if test="modifiedId != null">
+      <if test="modifiedId != null" >
         modified_id,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="slaughterBatchId != null">
+      <if test="slaughterBatchId != null" >
         #{slaughterBatchId,jdbcType=INTEGER},
       </if>
-      <if test="anamalId != null">
-        #{anamalId,jdbcType=INTEGER},
+      <if test="animalId != null" >
+        #{animalId,jdbcType=INTEGER},
       </if>
-      <if test="quarantineId != null">
+      <if test="quarantineId != null" >
         #{quarantineId,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="weight != null">
+      <if test="weight != null" >
         #{weight,jdbcType=DECIMAL},
       </if>
-      <if test="processingId != null">
+      <if test="processingId != null" >
         #{processingId,jdbcType=INTEGER},
       </if>
-      <if test="slaughterTime != null">
+      <if test="slaughterTime != null" >
         #{slaughterTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="remark != null">
+      <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="gmtCreate != null">
+      <if test="gmtCreate != null" >
         #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="gmtModified != null">
+      <if test="gmtModified != null" >
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="modifiedId != null">
+      <if test="modifiedId != null" >
         #{modifiedId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.SlaughterSingle">
+  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.SlaughterSingle" >
     update stm_slaughter_single_inf
-    <set>
-      <if test="slaughterBatchId != null">
+    <set >
+      <if test="slaughterBatchId != null" >
         slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
       </if>
-      <if test="anamalId != null">
-        anamal_id = #{anamalId,jdbcType=INTEGER},
+      <if test="animalId != null" >
+        animal_id = #{animalId,jdbcType=INTEGER},
       </if>
-      <if test="quarantineId != null">
+      <if test="quarantineId != null" >
         quarantine_id = #{quarantineId,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="weight != null">
+      <if test="weight != null" >
         weight = #{weight,jdbcType=DECIMAL},
       </if>
-      <if test="processingId != null">
+      <if test="processingId != null" >
         processing_id = #{processingId,jdbcType=INTEGER},
       </if>
-      <if test="slaughterTime != null">
+      <if test="slaughterTime != null" >
         slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="remark != null">
+      <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="gmtCreate != null">
+      <if test="gmtCreate != null" >
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="gmtModified != null">
+      <if test="gmtModified != null" >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="modifiedId != null">
+      <if test="modifiedId != null" >
         modified_id = #{modifiedId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.SlaughterSingle">
+  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.SlaughterSingle" >
     update stm_slaughter_single_inf
     set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      anamal_id = #{anamalId,jdbcType=INTEGER},
+      animal_id = #{animalId,jdbcType=INTEGER},
       quarantine_id = #{quarantineId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       weight = #{weight,jdbcType=DECIMAL},
@@ -176,529 +176,4 @@
       modified_id = #{modifiedId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.SlaughterSingle">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="anamal_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
-      <arg column="processing_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="slaughter_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, slaughter_batch_id, anamal_id, quarantine_id, name, weight, processing_id, slaughter_time, 
-    remark, gmt_create, gmt_modified, modified_id
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from stm_slaughter_single_inf
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from stm_slaughter_single_inf
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.SlaughterSingle">
-    insert into stm_slaughter_single_inf (id, slaughter_batch_id, anamal_id, 
-      quarantine_id, name, weight, 
-      processing_id, slaughter_time, remark, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{anamalId,jdbcType=INTEGER}, 
-      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, 
-      #{processingId,jdbcType=INTEGER}, #{slaughterTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.SlaughterSingle">
-    insert into stm_slaughter_single_inf
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="slaughterBatchId != null">
-        slaughter_batch_id,
-      </if>
-      <if test="anamalId != null">
-        anamal_id,
-      </if>
-      <if test="quarantineId != null">
-        quarantine_id,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="weight != null">
-        weight,
-      </if>
-      <if test="processingId != null">
-        processing_id,
-      </if>
-      <if test="slaughterTime != null">
-        slaughter_time,
-      </if>
-      <if test="remark != null">
-        remark,
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
-      <if test="modifiedId != null">
-        modified_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="slaughterBatchId != null">
-        #{slaughterBatchId,jdbcType=INTEGER},
-      </if>
-      <if test="anamalId != null">
-        #{anamalId,jdbcType=INTEGER},
-      </if>
-      <if test="quarantineId != null">
-        #{quarantineId,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null">
-        #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="processingId != null">
-        #{processingId,jdbcType=INTEGER},
-      </if>
-      <if test="slaughterTime != null">
-        #{slaughterTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.SlaughterSingle">
-    update stm_slaughter_single_inf
-    <set>
-      <if test="slaughterBatchId != null">
-        slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      </if>
-      <if test="anamalId != null">
-        anamal_id = #{anamalId,jdbcType=INTEGER},
-      </if>
-      <if test="quarantineId != null">
-        quarantine_id = #{quarantineId,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null">
-        weight = #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="processingId != null">
-        processing_id = #{processingId,jdbcType=INTEGER},
-      </if>
-      <if test="slaughterTime != null">
-        slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remark != null">
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        modified_id = #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.SlaughterSingle">
-    update stm_slaughter_single_inf
-    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      anamal_id = #{anamalId,jdbcType=INTEGER},
-      quarantine_id = #{quarantineId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=DECIMAL},
-      processing_id = #{processingId,jdbcType=INTEGER},
-      slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.SlaughterSingle">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="anamal_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
-      <arg column="processing_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="slaughter_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, slaughter_batch_id, anamal_id, quarantine_id, name, weight, processing_id, slaughter_time, 
-    remark, gmt_create, gmt_modified, modified_id
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from stm_slaughter_single_inf
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from stm_slaughter_single_inf
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.SlaughterSingle">
-    insert into stm_slaughter_single_inf (id, slaughter_batch_id, anamal_id, 
-      quarantine_id, name, weight, 
-      processing_id, slaughter_time, remark, 
-      gmt_create, gmt_modified, modified_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{anamalId,jdbcType=INTEGER}, 
-      #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, 
-      #{processingId,jdbcType=INTEGER}, #{slaughterTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.SlaughterSingle">
-    insert into stm_slaughter_single_inf
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="slaughterBatchId != null">
-        slaughter_batch_id,
-      </if>
-      <if test="anamalId != null">
-        anamal_id,
-      </if>
-      <if test="quarantineId != null">
-        quarantine_id,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="weight != null">
-        weight,
-      </if>
-      <if test="processingId != null">
-        processing_id,
-      </if>
-      <if test="slaughterTime != null">
-        slaughter_time,
-      </if>
-      <if test="remark != null">
-        remark,
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
-      <if test="modifiedId != null">
-        modified_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="slaughterBatchId != null">
-        #{slaughterBatchId,jdbcType=INTEGER},
-      </if>
-      <if test="anamalId != null">
-        #{anamalId,jdbcType=INTEGER},
-      </if>
-      <if test="quarantineId != null">
-        #{quarantineId,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null">
-        #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="processingId != null">
-        #{processingId,jdbcType=INTEGER},
-      </if>
-      <if test="slaughterTime != null">
-        #{slaughterTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.SlaughterSingle">
-    update stm_slaughter_single_inf
-    <set>
-      <if test="slaughterBatchId != null">
-        slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      </if>
-      <if test="anamalId != null">
-        anamal_id = #{anamalId,jdbcType=INTEGER},
-      </if>
-      <if test="quarantineId != null">
-        quarantine_id = #{quarantineId,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null">
-        weight = #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="processingId != null">
-        processing_id = #{processingId,jdbcType=INTEGER},
-      </if>
-      <if test="slaughterTime != null">
-        slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remark != null">
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null">
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null">
-        modified_id = #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.SlaughterSingle">
-    update stm_slaughter_single_inf
-    set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-      anamal_id = #{anamalId,jdbcType=INTEGER},
-      quarantine_id = #{quarantineId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=DECIMAL},
-      processing_id = #{processingId,jdbcType=INTEGER},
-      slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-    <resultMap id="BaseResultMap" type="com.traceback.pojo.SlaughterSingle">
-        <constructor>
-            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="slaughter_batch_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="anamal_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="quarantine_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
-            <arg column="processing_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-            <arg column="slaughter_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-            <arg column="modified_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
-        id, slaughter_batch_id, anamal_id, quarantine_id, name, weight, processing_id, slaughter_time,
-        remark, gmt_create, gmt_modified, modified_id
-    </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List" />
-        from stm_slaughter_single_inf
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from stm_slaughter_single_inf
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
-    <insert id="insert" parameterType="com.traceback.pojo.SlaughterSingle">
-        insert into stm_slaughter_single_inf (id, slaughter_batch_id, anamal_id,
-        quarantine_id, name, weight,
-        processing_id, slaughter_time, remark,
-        gmt_create, gmt_modified, modified_id
-        )
-        values (#{id,jdbcType=INTEGER}, #{slaughterBatchId,jdbcType=INTEGER}, #{anamalId,jdbcType=INTEGER},
-        #{quarantineId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL},
-        #{processingId,jdbcType=INTEGER}, #{slaughterTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR},
-        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedId,jdbcType=INTEGER}
-        )
-    </insert>
-    <insert id="insertSelective" parameterType="com.traceback.pojo.SlaughterSingle">
-        insert into stm_slaughter_single_inf
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="slaughterBatchId != null">
-                slaughter_batch_id,
-            </if>
-            <if test="anamalId != null">
-                anamal_id,
-            </if>
-            <if test="quarantineId != null">
-                quarantine_id,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-            <if test="weight != null">
-                weight,
-            </if>
-            <if test="processingId != null">
-                processing_id,
-            </if>
-            <if test="slaughterTime != null">
-                slaughter_time,
-            </if>
-            <if test="remark != null">
-                remark,
-            </if>
-            <if test="gmtCreate != null">
-                gmt_create,
-            </if>
-            <if test="gmtModified != null">
-                gmt_modified,
-            </if>
-            <if test="modifiedId != null">
-                modified_id,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
-            <if test="slaughterBatchId != null">
-                #{slaughterBatchId,jdbcType=INTEGER},
-            </if>
-            <if test="anamalId != null">
-                #{anamalId,jdbcType=INTEGER},
-            </if>
-            <if test="quarantineId != null">
-                #{quarantineId,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="weight != null">
-                #{weight,jdbcType=DECIMAL},
-            </if>
-            <if test="processingId != null">
-                #{processingId,jdbcType=INTEGER},
-            </if>
-            <if test="slaughterTime != null">
-                #{slaughterTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="remark != null">
-                #{remark,jdbcType=VARCHAR},
-            </if>
-            <if test="gmtCreate != null">
-                #{gmtCreate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="gmtModified != null">
-                #{gmtModified,jdbcType=TIMESTAMP},
-            </if>
-            <if test="modifiedId != null">
-                #{modifiedId,jdbcType=INTEGER},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.SlaughterSingle">
-        update stm_slaughter_single_inf
-        <set>
-            <if test="slaughterBatchId != null">
-                slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-            </if>
-            <if test="anamalId != null">
-                anamal_id = #{anamalId,jdbcType=INTEGER},
-            </if>
-            <if test="quarantineId != null">
-                quarantine_id = #{quarantineId,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="weight != null">
-                weight = #{weight,jdbcType=DECIMAL},
-            </if>
-            <if test="processingId != null">
-                processing_id = #{processingId,jdbcType=INTEGER},
-            </if>
-            <if test="slaughterTime != null">
-                slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="remark != null">
-                remark = #{remark,jdbcType=VARCHAR},
-            </if>
-            <if test="gmtCreate != null">
-                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="gmtModified != null">
-                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-            </if>
-            <if test="modifiedId != null">
-                modified_id = #{modifiedId,jdbcType=INTEGER},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.SlaughterSingle">
-        update stm_slaughter_single_inf
-        set slaughter_batch_id = #{slaughterBatchId,jdbcType=INTEGER},
-        anamal_id = #{anamalId,jdbcType=INTEGER},
-        quarantine_id = #{quarantineId,jdbcType=INTEGER},
-        name = #{name,jdbcType=VARCHAR},
-        weight = #{weight,jdbcType=DECIMAL},
-        processing_id = #{processingId,jdbcType=INTEGER},
-        slaughter_time = #{slaughterTime,jdbcType=TIMESTAMP},
-        remark = #{remark,jdbcType=VARCHAR},
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-        modified_id = #{modifiedId,jdbcType=INTEGER}
-        where id = #{id,jdbcType=INTEGER}
-    </update>
 </mapper>

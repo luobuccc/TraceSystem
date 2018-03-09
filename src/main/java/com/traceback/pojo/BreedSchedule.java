@@ -7,7 +7,7 @@ public class BreedSchedule {
 
     private Integer animalNum;
 
-    private Date starttime;
+    private Date startTime;
 
     private String supervisor;
 
@@ -21,10 +21,10 @@ public class BreedSchedule {
 
     private Integer modifiedId;
 
-    public BreedSchedule(Integer id, Integer animalNum, Date starttime, String supervisor, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
+    public BreedSchedule(Integer id, Integer animalNum, Date startTime, String supervisor, String remark, Integer status, Date gmtCreate, Date gmtModified, Integer modifiedId) {
         this.id = id;
         this.animalNum = animalNum;
-        this.starttime = starttime;
+        this.startTime = startTime;
         this.supervisor = supervisor;
         this.remark = remark;
         this.status = status;
@@ -53,12 +53,12 @@ public class BreedSchedule {
         this.animalNum = animalNum;
     }
 
-    public Date getStarttime() {
-        return starttime;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setStarttime(Date starttime) {
-        this.starttime = starttime;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
     public String getSupervisor() {
