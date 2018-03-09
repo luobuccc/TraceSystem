@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traceback.dao.LandBaseMapper">
+    <resultMap id="BaseResultMap" type="com.traceback.pojo.LandBase">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="company_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="base_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="type" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="area" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+            <arg column="state" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="bloke_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="employee_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, company_id, base_name, type, address, area, state, bloke_num, employee_num, remark,
+        gmt_create, gmt_modified, modified_id
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from stm_land_base_inf
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from stm_land_base_inf
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.traceback.pojo.LandBase">
+        insert into stm_land_base_inf (id, company_id, base_name,
+        type, address, area,
+        state, bloke_num, employee_num,
+        remark, gmt_create, gmt_modified,
+        modified_id)
+        values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{baseName,jdbcType=VARCHAR},
+        #{type,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{area,jdbcType=DECIMAL},
+        #{state,jdbcType=INTEGER}, #{blokeNum,jdbcType=INTEGER}, #{employeeNum,jdbcType=INTEGER},
+        #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{modifiedId,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.traceback.pojo.LandBase">
+        insert into stm_land_base_inf
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="companyId != null">
+                company_id,
+            </if>
+            <if test="baseName != null">
+                base_name,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="blokeNum != null">
+                bloke_num,
+            </if>
+            <if test="employeeNum != null">
+                employee_num,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="modifiedId != null">
+                modified_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="companyId != null">
+                #{companyId,jdbcType=INTEGER},
+            </if>
+            <if test="baseName != null">
+                #{baseName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=DECIMAL},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="blokeNum != null">
+                #{blokeNum,jdbcType=INTEGER},
+            </if>
+            <if test="employeeNum != null">
+                #{employeeNum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedId != null">
+                #{modifiedId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.LandBase">
+        update stm_land_base_inf
+        <set>
+            <if test="companyId != null">
+                company_id = #{companyId,jdbcType=INTEGER},
+            </if>
+            <if test="baseName != null">
+                base_name = #{baseName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=DECIMAL},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="blokeNum != null">
+                bloke_num = #{blokeNum,jdbcType=INTEGER},
+            </if>
+            <if test="employeeNum != null">
+                employee_num = #{employeeNum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedId != null">
+                modified_id = #{modifiedId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.LandBase">
+        update stm_land_base_inf
+        set company_id = #{companyId,jdbcType=INTEGER},
+        base_name = #{baseName,jdbcType=VARCHAR},
+        type = #{type,jdbcType=INTEGER},
+        address = #{address,jdbcType=VARCHAR},
+        area = #{area,jdbcType=DECIMAL},
+        state = #{state,jdbcType=INTEGER},
+        bloke_num = #{blokeNum,jdbcType=INTEGER},
+        employee_num = #{employeeNum,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
