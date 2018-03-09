@@ -1,5 +1,8 @@
 package com.traceback.common;
 
+/**
+ * Created by 53254 on 2018/1/28 13:46 /mmal
+ */
 public enum ResponseCode {
     SUCCESS(0, "SUCCESS"),
     ERROR(1, "ERROR"),

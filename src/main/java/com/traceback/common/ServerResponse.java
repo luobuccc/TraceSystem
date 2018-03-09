@@ -5,6 +5,9 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.io.Serializable;
 
+/**
+ * Created by 53254 on 2018/1/28 13:40 /mmal
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 //保证序列化Json时，如果value为null，则无Key
 public class ServerResponse<T> implements Serializable {

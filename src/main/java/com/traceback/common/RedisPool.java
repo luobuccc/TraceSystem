@@ -5,10 +5,13 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+/**
+ * Created by 53254 on 2018/3/5 9:16 /mmal
+ */
 public class RedisPool {
     private static JedisPool pool;//连接池
-    private static String redisIp = PropertiesUtil.getProperty("redis.ip");
-    private static Integer redisPort = Integer.parseInt(PropertiesUtil.getProperty("redis.port", "6379"));
+    private static String redisIp = PropertiesUtil.getProperty("redis1.ip");
+    private static Integer redisPort = Integer.parseInt(PropertiesUtil.getProperty("redis1.port", "6379"));
     private static Integer maxTotal = Integer.parseInt(PropertiesUtil.getProperty("redis.max.total", "20"));//最大连接数
     private static Integer maxIdle = Integer.parseInt(PropertiesUtil.getProperty("redis.max.idle", "10"));//最大空闲实例数
     private static Integer minIdle = Integer.parseInt(PropertiesUtil.getProperty("redis.min.idle", "2"));
@@ -42,4 +45,11 @@ public class RedisPool {
         pool.returnBrokenResource(jedis);
     }
 
+    public static void main(String[] args) {
+        Jedis jedis = pool.getResource();
+        jedis.set("key", "value");
+        returnResource(jedis);
+        pool.destroy();//临时调用，销毁所有连接
+        System.out.println("program is end");
+    }
 }

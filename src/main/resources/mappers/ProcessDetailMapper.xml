@@ -1,155 +1,155 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.traceback.dao.ProcessDetailMapper" >
-  <resultMap id="BaseResultMap" type="com.traceback.pojo.ProcessDetail" >
-    <constructor >
-      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="before_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="process_description" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="start_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="supervisor" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, before_id, process_description, start_time, status, supervisor, remark, gmt_create, 
-    gmt_modified, modified_id
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from stm_process_detail_inf
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from stm_process_detail_inf
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.traceback.pojo.ProcessDetail" >
-    insert into stm_process_detail_inf (id, before_id, process_description, 
-      start_time, status, supervisor, 
-      remark, gmt_create, gmt_modified, 
-      modified_id)
-    values (#{id,jdbcType=INTEGER}, #{beforeId,jdbcType=INTEGER}, #{processDescription,jdbcType=VARCHAR}, 
-      #{startTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{supervisor,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifiedId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.traceback.pojo.ProcessDetail" >
-    insert into stm_process_detail_inf
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="beforeId != null" >
-        before_id,
-      </if>
-      <if test="processDescription != null" >
-        process_description,
-      </if>
-      <if test="startTime != null" >
-        start_time,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="supervisor != null" >
-        supervisor,
-      </if>
-      <if test="remark != null" >
-        remark,
-      </if>
-      <if test="gmtCreate != null" >
-        gmt_create,
-      </if>
-      <if test="gmtModified != null" >
-        gmt_modified,
-      </if>
-      <if test="modifiedId != null" >
-        modified_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="beforeId != null" >
-        #{beforeId,jdbcType=INTEGER},
-      </if>
-      <if test="processDescription != null" >
-        #{processDescription,jdbcType=VARCHAR},
-      </if>
-      <if test="startTime != null" >
-        #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="supervisor != null" >
-        #{supervisor,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null" >
-        #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null" >
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null" >
-        #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.ProcessDetail" >
-    update stm_process_detail_inf
-    <set >
-      <if test="beforeId != null" >
-        before_id = #{beforeId,jdbcType=INTEGER},
-      </if>
-      <if test="processDescription != null" >
+<mapper namespace="com.traceback.dao.ProcessDetailMapper">
+    <resultMap id="BaseResultMap" type="com.traceback.pojo.ProcessDetail">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="before_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="process_description" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="start_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="supervisor" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="gmt_create" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="gmt_modified" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="modified_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, before_id, process_description, start_time, status, supervisor, remark, gmt_create,
+        gmt_modified, modified_id
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from stm_process_detail_inf
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from stm_process_detail_inf
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.traceback.pojo.ProcessDetail">
+        insert into stm_process_detail_inf (id, before_id, process_description,
+        start_time, status, supervisor,
+        remark, gmt_create, gmt_modified,
+        modified_id)
+        values (#{id,jdbcType=INTEGER}, #{beforeId,jdbcType=INTEGER}, #{processDescription,jdbcType=VARCHAR},
+        #{startTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{supervisor,jdbcType=VARCHAR},
+        #{remark,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{modifiedId,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.traceback.pojo.ProcessDetail">
+        insert into stm_process_detail_inf
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="beforeId != null">
+                before_id,
+            </if>
+            <if test="processDescription != null">
+                process_description,
+            </if>
+            <if test="startTime != null">
+                start_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="supervisor != null">
+                supervisor,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="modifiedId != null">
+                modified_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="beforeId != null">
+                #{beforeId,jdbcType=INTEGER},
+            </if>
+            <if test="processDescription != null">
+                #{processDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="startTime != null">
+                #{startTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="supervisor != null">
+                #{supervisor,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedId != null">
+                #{modifiedId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.traceback.pojo.ProcessDetail">
+        update stm_process_detail_inf
+        <set>
+            <if test="beforeId != null">
+                before_id = #{beforeId,jdbcType=INTEGER},
+            </if>
+            <if test="processDescription != null">
+                process_description = #{processDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="supervisor != null">
+                supervisor = #{supervisor,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedId != null">
+                modified_id = #{modifiedId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.ProcessDetail">
+        update stm_process_detail_inf
+        set before_id = #{beforeId,jdbcType=INTEGER},
         process_description = #{processDescription,jdbcType=VARCHAR},
-      </if>
-      <if test="startTime != null" >
         start_time = #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="supervisor != null" >
         supervisor = #{supervisor,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null" >
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null" >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifiedId != null" >
-        modified_id = #{modifiedId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.traceback.pojo.ProcessDetail" >
-    update stm_process_detail_inf
-    set before_id = #{beforeId,jdbcType=INTEGER},
-      process_description = #{processDescription,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=INTEGER},
-      supervisor = #{supervisor,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      modified_id = #{modifiedId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        modified_id = #{modifiedId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

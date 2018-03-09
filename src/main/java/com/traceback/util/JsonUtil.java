@@ -1,6 +1,5 @@
 package com.traceback.util;
 
-import com.traceback.pojo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.map.DeserializationConfig;
@@ -12,6 +11,9 @@ import org.codehaus.jackson.type.TypeReference;
 
 import java.text.SimpleDateFormat;
 
+/**
+ * Created by 53254 on 2018/3/6 12:03 /mmal
+ */
 @Slf4j
 public class JsonUtil {
 
@@ -89,34 +91,6 @@ public class JsonUtil {
     }
 
     public static void main(String[] args) {
-        User user = new User();
-        user.setId(1);
-        user.setEmail("1@qq.com");
-        String user1JsonPretty = JsonUtil.obj2StringPretty(user);
-        log.info("user1Json:{}", user1JsonPretty);
 
-        //User u2 = new User();
-        //u2.setId(2);
-        //u2.setEmail("2@qq.com");
-        //
-        //String user1Json = JsonUtil.obj2String(u1);
-        //String user1JsonPretty = JsonUtil.obj2StringPretty(u1);
-        //log.info("user1Json:{}", user1Json);
-        //log.info("user1JsonPretty:{}", user1JsonPretty);
-        //User user = JsonUtil.string2Obj(user1Json, User.class);
-        //
-        //List<User> userList = Lists.newArrayList();
-        //userList.add(u1);
-        //userList.add(u2);
-        //
-        //String userListStr = JsonUtil.obj2StringPretty(userList);
-        //log.info("===========================");
-        //log.info(userListStr);
-        //List<User> userListObj1 = JsonUtil.string2Obj(userListStr, new TypeReference<List<User>>() {
-        //});
-        //
-        //List<User> userListObj2 = JsonUtil.string2Obj(userListStr, List.class,User.class);
-        //
-        //System.out.println("end");
     }
 }
